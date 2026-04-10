@@ -1,11 +1,11 @@
-# Smart Backpack 🎒
+# Smart Backpack 
 
-A solar-powered smart backpack with GPS tracking, remote buzzer alert(when locating bag) and a live web app dashboard — built with an ESP32.
+A solar-powered smart backpack with GPS tracking, remote buzzer alert(when locating bag) and a live web app dashboard.
 
 ## Features
 - Live GPS location on a map
 - Remote buzzer anti-theft alert from the app/ when bag is lost and needs to be located
-- One-tap "Open in Google Maps"
+- Ability to "Open in Google Maps" to see location
 - Powered by solar panels + powerbank
 - Web app hosted directly on the ESP32
 
@@ -34,7 +34,7 @@ Tools → Manage Libraries → search and install:
 cp config.example.h config.h
 ```
 Then open `config.h` and fill in your WiFi name and password.
-> ⚠️ `config.h` is gitignored — it will never be pushed to GitHub.
+> ⚠️ `config.h` is gitignored — it will never be pushed to GitHub(safety first y'all).
 
 ### 5. Upload & Test
 - Set `SIMULATE_GPS true` in the sketch (no hardware needed)
