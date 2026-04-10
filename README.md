@@ -34,7 +34,7 @@ Tools → Manage Libraries → search and install:
 cp config.example.h config.h
 ```
 Then open `config.h` and fill in your WiFi name and password.
-> ⚠️ `config.h` is gitignored — it will never be pushed to GitHub(safety first y'all).
+>  `config.h` is gitignored — it will never be pushed to GitHub(safety first y'all).
 
 ### 5. Upload & Test
 - Set `SIMULATE_GPS true` in the sketch (no hardware needed)
