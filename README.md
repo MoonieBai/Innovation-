@@ -37,9 +37,9 @@ Then open `config.h` and fill in your WiFi name and password.
 >  `config.h` is gitignored — it will never be pushed to GitHub(safety first y'all).
 
 ### 5. Upload & Test
-- Set `SIMULATE_GPS true` in the sketch (no hardware needed)
+- Set `SIMULATE_GPS true` in the sketch (no hardware needed) --> This is to test the efficiency of the code and whether it actually works.
 - Upload to ESP32
-- Open Serial Monitor at 115200 baud
+- Open Serial Monitor at 115200 baud --> 9600 Baud works with devices that cannot send data at higher rates, and there are a number of such.
 - Copy the IP address shown → open it in your phone browser
 
 ---
@@ -61,7 +61,7 @@ Then open `config.h` and fill in your WiFi name and password.
 | -          | GND       |
 
 ### Solar Panels → Powerbank
-Solar panels → Buck converter (set to 5V output) → Powerbank USB-C input
+Solar panels → DC Power module → Batteries
 
 ### Powerbank → ESP32
 Powerbank USB-A → ESP32 micro-USB
@@ -90,8 +90,9 @@ smart_backpack/
 
 ## Components
 - ESP32  Module
-- GPS Module
+- GPS Module --> Still in the progrwss of acquiring so no specs on that yet
 - Active Buzzer (Passive)
-- 2× Solar Panels
-- Buck converter (panels → 5V)
-- 20000mAh Powerbank (USB-C input, LCD display)
+- 2× Solar Panels (5W)
+- DC Power Module (DFR0205)(25W)
+- 20000mAh Powerbank (USB-C input, LCD display) ---> Has been scraped and will be replaced by a battery
+- Motherboard for easy implementation until full implementation
