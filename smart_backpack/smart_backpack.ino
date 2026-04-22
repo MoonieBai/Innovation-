@@ -1,16 +1,9 @@
 // ============================================================
-//  SMART BACKPACK - ESP32 Main Sketch
-//  Components: ESP32, NEO-6M GPS, Buzzer, Solar + Powerbank
+//  A project by Viktoriia, Peace, Justin and Nur
 // ============================================================
-//  HOW TO USE:
-//  1. Copy config.example.h → rename to config.h
-//  2. Fill in your WiFi details inside config.h
-//  3. Install libraries (Arduino IDE > Tools > Manage Libraries):
-//     - TinyGPSPlus  by Mikal Hart
-//     - ArduinoJson  by Benoit Blanchon
-//  4. Set SIMULATE_GPS true until your GPS module arrives
-//  5. Upload to ESP32, open Serial Monitor at 115200 baud
-//  6. Connect phone to same WiFi, open the IP shown in Serial
+//  1. Set SIMULATE_GPS true until GPS module arrives
+//  2. Upload to ESP32, open Serial Monitor at 115200 baud
+//  3. Connect phone to same WiFi, open the IP shown in Serial
 // ============================================================
 
 #include <WiFi.h>
@@ -23,7 +16,7 @@
 // ─────────────────────────────────────────
 //  PIN DEFINITIONS  ← adjust after wiring
 // ─────────────────────────────────────────
-#define BUZZER_PIN   25   // GPIO pin connected to buzzer
+#define BUZZER_PIN   1   // GPIO pin connected to buzzer
 #define GPS_RX_PIN   16   // ESP32 RX2 ← GPS TX
 #define GPS_TX_PIN   17   // ESP32 TX2 → GPS RX (often unused)
 #define GPS_BAUD     9600
@@ -81,7 +74,7 @@ void setup() {
   server.on("/data",     handleData);
   server.on("/buzz",     handleBuzz);
   server.on("/stopbuzz", handleStopBuzz);
-  server.onNotFound([]() {
+  server.onNotFound([&server]() {
     server.send(404, "text/plain", "Not found");
   });
 
@@ -117,7 +110,7 @@ void loop() {
 void connectWiFi() {
   Serial.print("[WiFi] Connecting to ");
   Serial.println(WIFI_SSID);
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  WiFi.begin(WIFI_SSID, "");
 
   int attempts = 0;
   while (WiFi.status() != WL_CONNECTED && attempts < 20) {
@@ -141,6 +134,16 @@ void connectWiFi() {
 // ─────────────────────────────────────────
 //  ROUTES
 // ─────────────────────────────────────────
+
+// GET /  → returns a simple text response
+void handleRoot() {
+  String response = "Smart Backpack Server\n";
+  response += "Use /data for JSON data\n";
+  response += "Use /buzz to turn buzzer on\n";
+  response += "Use /stopbuzz to turn buzzer off\n";
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.send(200, "text/plain", response);
+}
 
 // GET /data  → returns JSON with GPS + status
 void handleData() {
