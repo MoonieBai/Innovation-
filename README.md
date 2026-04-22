@@ -1,13 +1,13 @@
 # Smart Backpack 
 
-A solar-powered smart backpack with GPS tracking, remote buzzer alert, and a live web app dashboard — built with an ESP32.
+A solar-powered smart backpack with GPS tracking, remote buzzer alert(when locating bag) and a live web app dashboard.
 
 ## Features
--  Live GPS location on a map
--  Remote buzzer anti-theft alert from the app
--  One-tap "Open in Google Maps"
--  Powered by solar panels + powerbank
--  Web app hosted directly on the ESP32
+- Live GPS location on a map
+- Remote buzzer anti-theft alert from the app/ when bag is lost and needs to be located
+- Ability to "Open in Google Maps" to see location
+- Powered by solar panels + powerbank
+- Web app hosted directly on the ESP32
 
 ---
 
@@ -34,7 +34,7 @@ Tools → Manage Libraries → search and install:
 cp config.example.h config.h
 ```
 Then open `config.h` and fill in your WiFi name and password.
-> ⚠️ `config.h` is gitignored — it will never be pushed to GitHub.
+>  `config.h` is gitignored — it will never be pushed to GitHub(safety first y'all).
 
 ### 5. Upload & Test
 - Set `SIMULATE_GPS true` in the sketch (no hardware needed)
@@ -44,7 +44,7 @@ Then open `config.h` and fill in your WiFi name and password.
 
 ---
 
-## Wiring (for when components arrive)
+## Wiring 
 
 ### GPS Module (NEO-6M) → ESP32
 | GPS Pin | ESP32 Pin |
@@ -89,9 +89,9 @@ smart_backpack/
 ```
 
 ## Components
-- ESP32 Dev Module
-- NEO-6M GPS Module
-- Active Buzzer
+- ESP32  Module
+- GPS Module
+- Active Buzzer (Passive)
 - 2× Solar Panels
 - Buck converter (panels → 5V)
 - 20000mAh Powerbank (USB-C input, LCD display)

@@ -1,0 +1,9 @@
+# Private config — contains WiFi credentials, never push this
+config.h
+
+# Arduino build files
+build/
+*.elf
+*.bin
+*.hex
+*.map
