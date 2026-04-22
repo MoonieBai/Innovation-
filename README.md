@@ -93,5 +93,5 @@ smart_backpack/
 - GPS Module
 - Active Buzzer (Passive)
 - 2× Solar Panels
-- Buck converter (panels → 5V)
+- Charging module/coverter
 - 20000mAh Powerbank (USB-C input, LCD display)
