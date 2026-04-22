@@ -1,13 +1,13 @@
-# Smart Backpack 🎒
+# Smart Backpack 
 
 A solar-powered smart backpack with GPS tracking, remote buzzer alert, and a live web app dashboard — built with an ESP32.
 
 ## Features
-- 📍 Live GPS location on a map
-- 🔔 Remote buzzer anti-theft alert from the app
-- 🗺️ One-tap "Open in Google Maps"
-- 🔋 Powered by solar panels + powerbank
-- 📶 Web app hosted directly on the ESP32
+-  Live GPS location on a map
+-  Remote buzzer anti-theft alert from the app
+-  One-tap "Open in Google Maps"
+-  Powered by solar panels + powerbank
+-  Web app hosted directly on the ESP32
 
 ---
 
